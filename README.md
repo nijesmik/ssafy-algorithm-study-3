@@ -79,3 +79,5 @@
 | | 프로그래머스 | [아날로그 시계](https://school.programmers.co.kr/learn/courses/30/lessons/250135) | Lv.2 |
 | **week02** <br> (24.06.03 ~ 24.06.09) | 프로그래머스 | [석유 시추](https://school.programmers.co.kr/learn/courses/30/lessons/250136) | Lv.2 |
 | | 프로그래머스 | [수레 움직이기](https://school.programmers.co.kr/learn/courses/30/lessons/250134) | Lv.3 |
+| **week03** <br> (24.06.10 ~ 24.06.16) | 프로그래머스 | [리코쳇 로봇](https://school.programmers.co.kr/learn/courses/30/lessons/169199) | Lv.2 |
+| | 프로그래머스 | [공 이동 시뮬레이션](https://school.programmers.co.kr/learn/courses/30/lessons/87391) | Lv.3 |
