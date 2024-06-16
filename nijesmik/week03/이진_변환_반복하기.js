@@ -3,14 +3,10 @@ function solution(s) {
   let zero = 0;
 
   while (s !== '1') {
-    let one = 0;
-    for (let i = 0; i < s.length; i++) {
-      if (s[i] === '1') {
-        one++;
-      } else {
-        zero++;
-      }
-    }
+    const length = s.length;
+    s = s.replaceAll('0', '');
+    const one = s.length;
+    zero += length - one;
     s = one.toString(2);
     count++;
   }
