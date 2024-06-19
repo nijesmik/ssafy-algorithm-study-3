@@ -81,3 +81,5 @@
 | | 프로그래머스 | [수레 움직이기](https://school.programmers.co.kr/learn/courses/30/lessons/250134) | Lv.3 |
 | **week03** <br> (24.06.10 ~ 24.06.16) | 프로그래머스 | [리코쳇 로봇](https://school.programmers.co.kr/learn/courses/30/lessons/169199) | Lv.2 |
 | | 프로그래머스 | [공 이동 시뮬레이션](https://school.programmers.co.kr/learn/courses/30/lessons/87391) | Lv.3 |
+| **week04** <br> (24.06.17 ~ 24.06.23) | 프로그래머스 | [n^2 배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390) | Lv.2 |
+| | 프로그래머스 | [블록 이동하기](https://school.programmers.co.kr/learn/courses/30/lessons/60063) | Lv.3 |
