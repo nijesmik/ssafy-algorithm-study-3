@@ -83,3 +83,5 @@
 | | 프로그래머스 | [공 이동 시뮬레이션](https://school.programmers.co.kr/learn/courses/30/lessons/87391) | Lv.3 |
 | **week04** <br> (24.06.17 ~ 24.06.23) | 프로그래머스 | [n^2 배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390) | Lv.2 |
 | | 프로그래머스 | [블록 이동하기](https://school.programmers.co.kr/learn/courses/30/lessons/60063) | Lv.3 |
+| **week05** <br> (24.06.24 ~ 24.06.30) | 프로그래머스 | [오픈채팅방](https://school.programmers.co.kr/learn/courses/30/lessons/42888) | Lv.2 |
+| | 프로그래머스 | [아방가르드 타일링](https://school.programmers.co.kr/learn/courses/30/lessons/181186) | Lv.3 |
