@@ -1,16 +1,13 @@
-package y24Jun;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Baek28086 {
+public class Main {
 
     public static void main(String[] args) throws Exception {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         String input = bf.readLine();
-
 
         char op = ' ';
         if (input.contains("+")) {
@@ -24,7 +21,6 @@ public class Baek28086 {
         }
 
         // 되는지 확인
-
         int opIndx = input.indexOf(op);
         if (opIndx == 0) {
             opIndx = input.indexOf(op, opIndx + 1);
@@ -37,15 +33,14 @@ public class Baek28086 {
         if (opNum1.startsWith("-")) {
             opNum1Minus = true;
             opNum1 = opNum1.substring(1);
-
         }
         if (opNum2.startsWith("-")) {
             opNum2Minus = true;
             opNum2 = opNum2.substring(1);
         }
 
-        int num1 = Integer.parseInt(opNum1, 8);
-        int num2 = Integer.parseInt(opNum2, 8);
+        long num1 = Long.parseLong(opNum1, 8);
+        long num2 = Long.parseLong(opNum2, 8);
 
         if (opNum1Minus) {
             num1 = -num1;
@@ -55,7 +50,7 @@ public class Baek28086 {
         }
 
         //System.out.println(num1 + " " + num2);
-        int result = 0;
+        long result = 0;
         if (op == '+') {
             result = num1 + num2;
         } else if (op == '-') {
@@ -75,7 +70,7 @@ public class Baek28086 {
             resultMinus = true;
             result = -result;
         }
-        String answer = Integer.toOctalString(result);
+        String answer = Long.toOctalString(result);
         if (resultMinus) {
             answer = "-" + answer;
         }
