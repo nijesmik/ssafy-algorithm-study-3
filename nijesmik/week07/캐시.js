@@ -7,11 +7,7 @@ function solution(cacheSize, cities) {
     }
 
     const cache = Array(cacheSize);
-    let time = 0;
-    for (let i = 0; i < cities.length; i++) {
-        time += search(cache, cities[i].toLowerCase());
-    }
-    return time;
+    return cities.reduce((time, city) => time + search(cache, city.toLowerCase()), 0);
 }
 
 const search = (cache, city) => {
