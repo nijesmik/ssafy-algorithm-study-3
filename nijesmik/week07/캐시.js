@@ -2,6 +2,10 @@ const CACHE_HIT = 1;
 const CACHE_MISS = 5;
 
 function solution(cacheSize, cities) {
+    if (cacheSize === 0) {
+        return cities.length * CACHE_MISS;
+    }
+
     const cache = Array(cacheSize);
     let time = 0;
     for (let i = 0; i < cities.length; i++) {
@@ -11,9 +15,6 @@ function solution(cacheSize, cities) {
 }
 
 const search = (cache, city) => {
-    if (cache.length === 0) {
-        return CACHE_MISS;
-    }
     for (let i = 0; i < cache.length; i++) {
         if (cache[i] === city) {
             cache.splice(i, 1);
