@@ -1,12 +1,4 @@
-const parking = new Map();
-const totalTime = new Map();
-
-const addTime = (num, outTime) => {
-  const inTime = parking.get(num);
-  let time = outTime - inTime;
-  const prev = totalTime.has(num) ? totalTime.get(num) : 0;
-  totalTime.set(num, prev + time);
-};
+const totalTime = {};
 
 const getFee = (fees, time) => {
   const [baseTime, baseRate, unitTime, unitRate] = fees;
@@ -24,16 +16,17 @@ function solution(fees, records) {
     .forEach(([time, num, status]) => {
       const [hour, min] = time.split(':');
       const parsedTime = Number(hour) * 60 + Number(min);
+      if (!totalTime[num]) {
+        totalTime[num] = 0;
+      }
       if (status === 'IN') {
-        parking.set(num, parsedTime);
+        totalTime[num] += 23 * 60 + 59 - parsedTime;
       } else {
-        addTime(num, parsedTime);
-        parking.delete(num);
+        totalTime[num] -= 23 * 60 + 59 - parsedTime;
       }
     });
-  Array.from(parking.keys()).forEach((num) => addTime(num, 23 * 60 + 59));
 
-  return Array.from(totalTime.entries())
+  return Object.entries(totalTime)
     .sort((a, b) => a[0] - b[0])
     .map(([num, time]) => getFee(fees, time));
 }
