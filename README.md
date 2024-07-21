@@ -24,5 +24,6 @@
 | | 프로그래머스 | [아방가르드 타일링](https://school.programmers.co.kr/learn/courses/30/lessons/181186) | Lv.3 |
 | **week06** <br> (24.07.01 ~ 24.07.07) | 프로그래머스 | [행렬 테두리 회전하기](https://school.programmers.co.kr/learn/courses/30/lessons/77485) | Lv.2 |
 | | 프로그래머스 | [리틀 프렌즈 사천성](https://school.programmers.co.kr/learn/courses/30/lessons/1836) | Lv.3 |
+| **week07** <br> (24.07.08 ~ 24.07.14) | - | 자율 | - |
 
 </div>
