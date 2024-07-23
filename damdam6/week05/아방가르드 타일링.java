@@ -1,53 +1,49 @@
-import java.util.*;
-
 class Solution {
+
     public int solution(int n) {
-        
         int MOD = 1_000_000_007;
-        
-        int[] dp = new int[n+1];
-        
-        dp[1] = 1;
-        if(n == 1)return dp[1];
-        dp[2] = 3;
-        if(n == 2)return dp[2];
-        dp[3] = 10;
-        if(n == 3)return dp[3];
-        dp[4] = 23;
-        if(n==4)return dp[4];
-        dp[5] = 62;
-        if(n==5)return dp[5];
-        dp[6] = 170;
-        
-        for(int i=7;i<=n;i++){
+        long[] dp = new long[n+1];
+        long[] four = new long[n+1];
+        long[] five = new long[n+1];
+        long[] six = new long[n+1];
 
-            
-            dp[i] =(dp[i-1]%MOD + dp[i-2]*2%MOD + dp[i-3]*5%MOD)%MOD;
-            
-            // System.out.println(dp[i]);
-            
-            int k = i - 4;
-            while (k > 0) {
-                dp[i] = (dp[i] + dp[k] * 2 % MOD) % MOD;
-                k -= 3;
+        dp[0] = 1;
+
+        for(int i=1; i <= n; i++){
+
+            if(i - 1 >= 0){
+                dp[i] = (dp[i] + dp[i-1])%MOD;
             }
 
-            k = i - 5;
-            while (k > 0) {
-                dp[i] = (dp[i] + dp[k] * 2 % MOD) % MOD;
-                k -= 3;
+            if(i - 2 >= 0){
+                dp[i] = (dp[i] + dp[i-2]*2%MOD)%MOD;
             }
 
-            k = i - 6;
-            while (k > 0) {
-                dp[i] = (dp[i] + dp[k] * 4 % MOD) % MOD;
-                k -= 3;
+            if(i - 3 >= 0){
+                dp[i] = (dp[i] + dp[i-3]*5%MOD)%MOD;
             }
-            
-         System.out.println(Arrays.toString(dp));
+
+            if(i - 4 >= 0){
+                four[i] = (four[i-3] + (dp[i-4]*2)%MOD)%MOD;
+                dp[i] = (dp[i] + four[i])%MOD;
+            }
+
+            if(i - 5 >= 0){
+                five[i] = (five[i-3] + (dp[i-5]*2)%MOD)%MOD;
+                dp[i] = (dp[i] + five[i])%MOD;
+            }
+
+
+
+            if(i - 6 >= 0){
+                six[i] = (six[i-3] + (dp[i-6]*4)%MOD)%MOD;
+                dp[i] = (dp[i] + six[i])%MOD;
+            }
+
         }
 
-        int answer = dp[n];
-        return answer;
+
+        long answer = dp[n];
+        return Integer.parseInt(dp[n]+"");
     }
 }
