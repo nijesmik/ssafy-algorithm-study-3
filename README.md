@@ -27,5 +27,6 @@
 | **week07** <br> (24.07.08 ~ 24.07.14) | - | 자율 | - |
 | **week08** <br> (24.07.15 ~ 24.07.21) | 프로그래머스 | [110 옮기기](https://school.programmers.co.kr/learn/courses/30/lessons/77886) | Lv.3 |
 | | 프로그래머스 | [무지의 먹방 라이브](https://school.programmers.co.kr/learn/courses/30/lessons/42891) | Lv.4 |
+| **week09** <br> (24.07.22 ~ 24.07.28) | - | 자율 | - |
 
 </div>
