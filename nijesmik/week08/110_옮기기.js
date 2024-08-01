@@ -3,22 +3,20 @@ function solution(s) {
 }
 
 const convert = (str) => {
-  const match = str.match(/110/);
-  if (!match) {
-    return str;
-  }
-
-  const { index } = match;
-  const deleted = str.slice(0, index) + str.slice(index + 3);
-
-  let answer = str;
-  for (let i = 0; i < deleted.length; i++) {
-    const prev = deleted.slice(0, i) + '110';
-    const next = convert(deleted.slice(i));
-    const inserted = prev + next;
-    if (inserted < answer) {
-      answer = inserted;
+  let stack = [];
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    stack.push(str[i]);
+    if (stack.at(-1) === '0' && stack.at(-2) === '1' && stack.at(-3) === '1') {
+      count++;
+      stack.pop();
+      stack.pop();
+      stack.pop();
     }
   }
-  return answer;
+  let index = stack.length - 1;
+  while (index >= 0 && stack[index] === '1') {
+    index--;
+  }
+  return stack.slice(0, index + 1).join('') + '110'.repeat(count) + stack.slice(index + 1).join('');
 };
