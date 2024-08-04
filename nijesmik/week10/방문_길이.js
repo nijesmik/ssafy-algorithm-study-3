@@ -1,20 +1,23 @@
 function solution(dirs) {
-  const cur = { r: 0, c: 0 };
-  let answer = 0;
   const map = new Map();
-  for (let i = 0; i < dirs.length; i++) {
-    const [r, c] = getDir(dirs[i]);
-    if (!validate(cur.r + r) || !validate(cur.c + c)) {
-      continue;
-    }
-    cur.r += r;
-    cur.c += c;
-    const key = getKey(cur, dirs[i]);
-    if (!map.has(key)) {
-      answer++;
-      map.set(key, true);
-    }
-  }
+  let answer = 0;
+  [...dirs].reduce(
+    (cur, dir) => {
+      const [r, c] = getDir(dir);
+      if (!validate(cur.r + r) || !validate(cur.c + c)) {
+        return cur;
+      }
+      cur.r += r;
+      cur.c += c;
+      const key = getKey(cur, dir);
+      if (!map.has(key)) {
+          answer++;
+          map.set(key, true);
+      }
+      return cur;
+    },
+    { r: 0, c: 0 }
+  );
   return answer;
 }
 
