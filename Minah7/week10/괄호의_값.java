@@ -1,4 +1,4 @@
-// 미완성
+// 성공
 // https://www.acmicpc.net/problem/2504
 
 package 약점_체크;
@@ -9,59 +9,77 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class 괄호의_값 {
+	static Stack<String> stack = new Stack<>();
+	static String str;
+	static boolean wrong = false;
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str = br.readLine();
-		int len = str.length();
-		
-		int total = 0;
-		int temp = 0;
-		
-		Stack<Character> stack = new Stack<>();
-		for(int i = 0; i < len; i++) {
-			if(str.charAt(i) == '(' || str.charAt(i) == '[') {
-				stack.add(str.charAt(i));
-			} else {
-				if(str.charAt(i) == ')') {
-					if(!stack.isEmpty() && stack.peek() == '(') {
-						stack.pop();
-						if(temp == 0) {
-							temp += 2;
-						} else {
-							temp *= 2;
-						}
-						
-						if(stack.isEmpty() || (i < len - 1 && (str.charAt(i + 1) == '(' || str.charAt(i + 1) == '['))) {
-							total += temp;
-							temp = 0;
-						}
-					} else {
-						total = 0;
-						break;
-					}
-				} else {
-					if(!stack.isEmpty() && stack.peek() == '[') {
-						stack.pop();
-						if(temp == 0) {
-							temp += 3;
-						} else {
-							temp *= 3;
-						}
-						
-						if(stack.isEmpty() || (i < len - 1 && (str.charAt(i + 1) == '(' || str.charAt(i + 1) == '['))) {
-							total += temp;
-							temp = 0;
-						}
-					} else {
-						total = 0;
-						break;
-					}
-				}
+		str = br.readLine();
+		int result = 0;
+		for(int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			if(c == '(' || c == '[') {
+				stack.add("" + c);
+				continue;
+			}
+			i = calculate(i);
+			if(wrong) {
+				break;
 			}
 		}
 		
-		total += temp;
+		if(wrong) {
+			result = 0;
+		} else if(stack.contains("(") || stack.contains("[")) {
+			result = 0; 
+		} else {
+			while(!stack.isEmpty()) {
+				result += Integer.parseInt(stack.pop());
+			}
+		}
 		
-		System.out.println(total);
+		System.out.println(result);
+	}
+	
+	public static int calculate(int i) {
+		int num = 0;
+		do {
+			if(stack.isEmpty() || (!stack.contains("(") && !stack.contains("["))) {
+				wrong = true;
+				break;
+			}
+			String s = stack.pop();
+			if(Character.isDigit(s.charAt(0))) {
+				num += Integer.parseInt(s);
+				s = stack.pop();
+			}
+			char c = str.charAt(i);
+			if(c == ')' && s.equals("(")) {
+				if(num != 0) {
+					num *= 2;
+				} else {
+					num = 2;
+				}
+			} else if(c == ']' && s.equals("[")) {
+				if(num != 0) {
+					num *= 3;
+				} else {
+					num = 3;
+				}
+			} else {
+				wrong = true;
+				break;
+			}
+			i++;
+		} while (!wrong && i < str.length() && (str.charAt(i) == ')' || str.charAt(i) == ']'));
+		
+		if(!stack.isEmpty() && Character.isDigit(stack.peek().charAt(0))) {
+			num += Integer.parseInt(stack.pop());
+		}
+		
+		stack.add(String.valueOf(num));
+		
+		return i - 1;
 	}
 }
