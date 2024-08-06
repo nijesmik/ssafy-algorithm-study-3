@@ -4,26 +4,24 @@ function solution(n, roads, sources, destination) {
     graph[a].push(b);
     graph[b].push(a);
   });
-  return sources.map((start) => bfs(graph, start, destination));
+  const distance = bfs(graph, destination);
+  return sources.map((start) => distance[start]);
 }
 
-const bfs = (graph, start, destination) => {
+const bfs = (graph, start) => {
   const q = [];
-  const visited = Array(graph.length).fill(false);
+  const distance = Array(graph.length).fill(-1);
 
-  q.push([start, 0]);
-  visited[start] = true;
+  q.push(start);
+  distance[start] = 0;
   while (q.length) {
-    const [cur, distance] = q.shift();
-    if (cur === destination) {
-      return distance;
-    }
+    const cur = q.shift();
     graph[cur].forEach((next) => {
-      if (!visited[next]) {
-        q.push([next, distance + 1]);
-        visited[next] = true;
+      if (distance[next] === -1) {
+        q.push(next);
+        distance[next] = distance[cur] + 1;
       }
     });
   }
-  return -1;
+  return distance;
 };
