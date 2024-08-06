@@ -30,5 +30,7 @@
 | **week09** <br> (24.07.22 ~ 24.07.28) | - | 자율 | - |
 | **week10** <br> (24.07.29 ~ 24.08.04) | 프로그래머스 | [단어 변환](https://school.programmers.co.kr/learn/courses/30/lessons/43163) | Lv.3 |
 | | 프로그래머스 | [호텔 방 배정](https://school.programmers.co.kr/learn/courses/30/lessons/64063) | Lv.4 |
+| **week11** <br> (24.08.05 ~ 24.08.11) | 프로그래머스 | [부대복귀](https://school.programmers.co.kr/learn/courses/30/lessons/132266) | Lv.3 |
+| | 프로그래머스 | [자동완성](https://school.programmers.co.kr/learn/courses/30/lessons/17685) | Lv.4 |
 
 </div>
