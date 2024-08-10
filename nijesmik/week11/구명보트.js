@@ -1,10 +1,10 @@
 function solution(people, limit) {
-  const sorted = people.sort((a, b) => a - b);
+  people.sort((a, b) => a - b);
   let left = 0;
-  let right = sorted.length - 1;
+  let right = people.length - 1;
   let answer = 0;
   while (left <= right) {
-    if (sorted[left] + sorted[right] <= limit) {
+    if (people[left] + people[right] <= limit) {
       left++;
     }
     right--;
@@ -12,3 +12,5 @@ function solution(people, limit) {
   }
   return answer;
 }
+
+// Array.sort는 불변성이 유지되지 않는다!
