@@ -1,8 +1,8 @@
+const N = 65536;
+
 function solution(str1, str2) {
-  const set1 = {};
-  const set2 = {};
-  addAll(set1, str1.toLowerCase());
-  addAll(set2, str2.toLowerCase());
+  const set1 = createSet(str1.toLowerCase());
+  const set2 = createSet(str2.toLowerCase());
 
   const union =
     Object.keys(set1).reduce((union, key) => {
@@ -21,17 +21,18 @@ function solution(str1, str2) {
     return intersect + Math.min(set1[key], num);
   }, 0);
 
-  const answer = intersect / union;
-  if (Number.isNaN(answer)) {
-    return 65536;
+  if (union === 0) {
+    return N;
   }
-  return Math.floor(answer * 65536);
+  return Math.floor((intersect / union) * N);
 }
 
-const addAll = (set, str) => {
+const createSet = (str) => {
+  const set = {};
   for (let i = 1; i < str.length; i++) {
     add(set, str, i);
   }
+  return set;
 };
 
 const add = (set, str, i) => {
