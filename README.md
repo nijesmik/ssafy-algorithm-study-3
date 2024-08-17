@@ -32,5 +32,7 @@
 | | 프로그래머스 | [호텔 방 배정](https://school.programmers.co.kr/learn/courses/30/lessons/64063) | Lv.4 |
 | **week11** <br> (24.08.05 ~ 24.08.11) | 프로그래머스 | [부대복귀](https://school.programmers.co.kr/learn/courses/30/lessons/132266) | Lv.3 |
 | | 프로그래머스 | [자동완성](https://school.programmers.co.kr/learn/courses/30/lessons/17685) | Lv.4 |
+| **week12** <br> (24.08.12 ~ 24.08.18) | 프로그래머스 | [인사고과](https://school.programmers.co.kr/learn/courses/30/lessons/152995) | Lv.3 |
+| | 프로그래머스 | [쿠키 구입](https://school.programmers.co.kr/learn/courses/30/lessons/49995) | Lv.4 |
 
 </div>
